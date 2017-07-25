@@ -1,0 +1,30 @@
+<!-- <div class="container">
+  <div class="row" *ngFor="let user of users">
+    <div class="card card-block">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <p class="card-text">{{user.lastname}}</p>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-3">
+  <h3>Fictional TV Characters</h3>
+  <div class="row">
+
+    <div class="col-sm-4 mt-3" *ngFor="let user of users">
+      <div class="card">
+        <div class="card-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="card-tigtle">{{ user.name }} {{user.lastname}}</h4>
+        </div>
+        <div class="card-block">
+          <h6 class="card-subtitle">{{ user.position }}</h6>
+          <p class="card-text">{{ user.biography }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

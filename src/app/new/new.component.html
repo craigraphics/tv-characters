@@ -1,0 +1,34 @@
+<div class="container mt-3">
+
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6">
+      <h3>Add New User:</h3>
+      <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Example: John" [(ngModel)]="user.name">
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="lastname">Lastname</label>
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Example: Doe" [(ngModel)]="user.lastname">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="position">Position</label>
+          <input type="text" class="form-control" id="position" name="position" placeholder="Example: Designer" [(ngModel)]="user.position">
+        </div>
+        <div class="form-group">
+          <label for="bio">Biography</label>
+          <textarea class="form-control" id="bio" name="bio" rows="3" [(ngModel)]="user.biography"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</div>
