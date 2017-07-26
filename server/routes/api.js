@@ -51,7 +51,7 @@ router.post('/users', (req, res) => {
     let biography = req.body.biography;
     let newUser = { name, lastname, position, biography };
 
-    User.create(newUser, ( err, usr ) => {
+    User.create(newUser, (err, usr) => {
       if ( err ) {
         res.json({ message: err });
       } else {
@@ -59,6 +59,17 @@ router.post('/users', (req, res) => {
         res.json({ message: 'character created' });
       }
     });
+});
+
+router.delete('/users/:user_id', (req, res) => {
+  User.remove({ _id: req.params.user_id }, (err, user) => {
+    if ( err ) {
+      console.log('There was an error');
+    } else {
+      res.json({ message: 'character deleted' });
+    }
+  });
+
 });
 
 module.exports = router;
