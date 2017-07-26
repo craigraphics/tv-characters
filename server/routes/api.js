@@ -37,7 +37,7 @@ router.get('/posts', (req, res) => {
 router.get('/users', (req, res) => {
     User.find({}, ( err, allUsers ) => {
       if ( err ) {
-        console.log('There was an error');
+        res.json({ message: err });
       } else {
         res.json(allUsers);
       }
@@ -64,7 +64,7 @@ router.post('/users', (req, res) => {
 router.delete('/users/:user_id', (req, res) => {
   User.remove({ _id: req.params.user_id }, (err, user) => {
     if ( err ) {
-      console.log('There was an error');
+      res.json({ message: err });
     } else {
       res.json({ message: 'character deleted' });
     }

@@ -13,7 +13,6 @@ export class NewComponent implements OnInit {
   constructor(private UsersService: UsersService, private router: Router) { }
 
   onSubmit() {
-
     this.UsersService.newUser( this.user ).subscribe(user => {
       this.user = user;
       console.log(this.user);

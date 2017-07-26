@@ -15,16 +15,18 @@ export class UsersComponent implements OnInit {
 
   deleteUser( id ) {
     this.UsersService.deleteUser( id ).subscribe(() => {
-      this.UsersService.getAllUsers().subscribe(users => {
-        this.users = users;
-      });
+      this.getAllUsers();
+    });
+  }
+
+  getAllUsers() {
+    this.UsersService.getAllUsers().subscribe(users => {
+      this.users = users;
     });
   }
 
   ngOnInit() {
     // Retrieve users from the API
-    this.UsersService.getAllUsers().subscribe(users => {
-      this.users = users;
-    });
+    this.getAllUsers();
   }
 }
