@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
-// Get all posts
+// Create a demo api with a json mock
 router.get('/posts', (req, res) => {
   axios.get(`${API}/posts`)
     .then(posts => {
@@ -33,13 +33,12 @@ router.get('/posts', (req, res) => {
     });
 });
 
+// Create API for tv character and retrieve list.
 router.get('/users', (req, res) => {
     User.find({}, ( err, allUsers ) => {
       if ( err ) {
         console.log('There was an error');
       } else {
-        console.log('ALL THE USERS:....');
-        console.log(allUsers);
         res.json(allUsers);
       }
     });
@@ -50,19 +49,14 @@ router.post('/users', (req, res) => {
     let lastname = req.body.lastname;
     let position = req.body.position;
     let biography = req.body.biography;
-    let newUser = { name: name, lastname: lastname, position: position, biography: biography };
-
-
+    let newUser = { name, lastname, position, biography };
 
     User.create(newUser, ( err, usr ) => {
       if ( err ) {
         res.json({ message: err });
       } else {
-        console.log('--------------------------');
-        console.log(req.body);
-        console.log('--------------------------');
-        console.log(name);
-        res.json({ message: 'user created' });
+        console.log(newUser);
+        res.json({ message: 'character created' });
       }
     });
 });
